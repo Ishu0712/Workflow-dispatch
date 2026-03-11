@@ -4,9 +4,16 @@ on: workflow_dispatch
 jobs:
   my_first_job: 
     name: My first job
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     steps:
      - name: Greeting
-       run: echo "Hello world from my first Github Action worklflow"
-   
+       run: echo "Hello world from Linux runner Github Action worklflow"
+       
+  my_second_job:     
+   name: My second job
+   runs-on: windows-latest
+   steps:
+     - name: windows
+       run: echo "Hello world from Windows runner Github Action worklflow"
+      
     
