@@ -9,7 +9,8 @@ jobs:
      - name: Greeting
        run: echo "Hello world from Linux runner Github Action worklflow"
        
-  my_second_job:     
+  my_second_job: 
+   needs: my_first_job 
    name: My second job
    runs-on: windows-latest
    steps:
