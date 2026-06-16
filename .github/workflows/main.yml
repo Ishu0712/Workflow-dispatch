@@ -1,20 +1,21 @@
-name: Hello World Workflow
-on: workflow_dispatch
+name: Actions with variable 
+
+on: 
+  workflow_dispatch:
+
+env:
+  FIRST_NAME: mona
 
 jobs:
-  my_first_job: 
-    name: My first job
+  my_first_job:
+    env:
+      LAST_NAME: Darling
+    name: my first job
     runs-on: ubuntu-slim
     steps:
-     - name: Greeting
-       run: echo "Hello world from Linux runner Github Action worklflow"
-       
-  my_second_job: 
-   needs: my_first_job 
-   name: My second job
-   runs-on: windows-latest
-   steps:
-     - name: windows
-       run: echo "Hello world from Windows runner Github Action worklflow"
+     - name: Checkout
+       uses: actions/checkout@v6.0.3
+
+     - name: Greetings
+       run: echo "Hello, $FIRST_NAME $LAST_NAME!"
       
-    
